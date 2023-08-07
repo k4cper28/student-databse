@@ -3,10 +3,11 @@ project(database_student)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(database_student main.cpp)
+add_executable(database_student src/main.cpp)
 
 # GoogleTest requires at least C++14
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -16,3 +17,11 @@ FetchContent_Declare(
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+add_executable(database_student-ut src/test.cpp)
+target_link_libraries(database_student-ut GTest::gtest_main)
+
+include(GoogleTest)
+gtest_discover_tests(database_student-ut)
