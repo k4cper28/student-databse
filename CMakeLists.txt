@@ -3,7 +3,8 @@ project(database_student)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(database_student src/main.cpp)
+add_executable(database_student src/main.cpp src/database.cpp src/student.cpp)
+
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
@@ -19,8 +20,7 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
-
-add_executable(database_student-ut src/test.cpp)
+add_executable(database_student-ut src/test.cpp src/database.cpp src/student.cpp)
 target_link_libraries(database_student-ut GTest::gtest_main)
 
 include(GoogleTest)
