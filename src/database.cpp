@@ -19,3 +19,14 @@ std::string Database::show() const {
     return result;
 }
 
+std::string Database::findByLastname(std::string SearchedLastname) const {
+
+    std::string result = "";
+
+    for(auto && student : students_){
+        if(SearchedLastname == student.getLastname())
+            result += student.show();
+    }
+
+    return result;
+}

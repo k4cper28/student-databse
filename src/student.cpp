@@ -20,3 +20,7 @@ std::string Student::show() const {
     return name_ + " " + lastName_ + "; " + address_ + "; "
     + std::to_string(index_) + "; " + pesel_ + "; " + "Male";
 }
+
+std::string Student::getLastname() const {
+    return lastName_;
+}

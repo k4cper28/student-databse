@@ -6,7 +6,7 @@ Wymagania podstawowe:
 2. Dodawanie nowych studentow
 3. Wyswietalnei calej bazy danych 
 4. Wyszukiwanie po nazwisku
-5. Wyszukiwanie po adresie PESEL
+5. Wyszukiwanie po numerze PESEL
 6. Sortowanie po numerze pesel
 7. Sortowanie po nazwisku 
 8. Usuwanie po indeksie
