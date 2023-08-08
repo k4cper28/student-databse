@@ -14,6 +14,4 @@ public:
             int index,
             std::string pesel,
             Gender gender);
-private:
-    Gender g;
 };

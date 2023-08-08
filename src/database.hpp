@@ -5,5 +5,8 @@
 
 class Database {
 public:
-    void add(const Student &s);
+    bool add(const Student &s);
+
+private:
+    bool isAdded_ = false;
 };
