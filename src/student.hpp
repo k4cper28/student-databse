@@ -14,4 +14,14 @@ public:
             int index,
             std::string pesel,
             Gender gender);
+    std::string show() const;
+
+private:
+    std::string name_;
+    std::string lastName_;
+    std::string address_;
+    int index_;
+    std::string pesel_;
+    Gender gender_;
+
 };
