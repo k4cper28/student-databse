@@ -16,3 +16,11 @@ TEST(CheckStructure, CanAddStudentToDb_req1_Req2) {
     EXPECT_TRUE(db.add(adam));
     EXPECT_FALSE(db.add(adam));
 };
+
+TEST(Displaydb, DisplayEmptyDb){
+    Database db;
+    auto content = db.show();
+    auto expected ="";
+    EXPECT_EQ(content, expected);
+}
+
