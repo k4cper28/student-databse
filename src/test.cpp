@@ -31,6 +31,24 @@ TEST_F(DatabaseTest, DisplayNonEmptyDb){
 
 }
 
+TEST_F(DatabaseTest, NoFindByLastname){
+    Student adam{
+            "Adam",
+            "Kowalski",
+            "ul. Dobra 134, 00-200 Warszawa",
+            123456,
+            "11223344567",
+            Gender::Male
+    };
+
+
+    db.add(adam);
+
+    auto content = db.findByLastname("Nowak");
+    std::string expected = "";
+    EXPECT_EQ(content, expected);
+}
+
 
 TEST_F(DatabaseTest, FindByLastname){
     Student adam{
