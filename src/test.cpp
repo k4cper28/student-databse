@@ -67,3 +67,37 @@ TEST_F(DatabaseTest, FindByLastname){
     std::string expected = "Adam Kowalski; ul. Dobra 134, 00-200 Warszawa; 123456; 11223344567; Male";
     EXPECT_EQ(content, expected);
 }
+
+TEST_F(DatabaseTest, NoFindByPesel){
+    Student adam{
+            "Adam",
+            "Kowalski",
+            "ul. Dobra 134, 00-200 Warszawa",
+            123456,
+            "11223344567",
+            Gender::Male
+    };
+
+    db.add(adam);
+
+    auto content = db.findByPesel("11223344569");
+    std::string expected = "";
+    EXPECT_EQ(content, expected);
+}
+
+TEST_F(DatabaseTest, FindByPesel){
+    Student adam{
+            "Adam",
+            "Kowalski",
+            "ul. Dobra 134, 00-200 Warszawa",
+            123456,
+            "11223344567",
+            Gender::Male
+    };
+
+    db.add(adam);
+
+    auto content = db.findByPesel("11223344567");
+    std::string expected = "Adam Kowalski; ul. Dobra 134, 00-200 Warszawa; 123456; 11223344567; Male";
+    EXPECT_EQ(content, expected);
+}
