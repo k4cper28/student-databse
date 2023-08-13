@@ -41,3 +41,24 @@ std::string Database::findByPesel(std::string searchedPesel) const{
 
     return result;
 }
+
+std::string Database::sortByPesel() {
+
+    for( int i = 0; i < students_.size(); i++ )
+    {
+        for( int j = 0; j < students_.size() - 1; j++ )
+        {
+            if( students_[ j ] > students_[ j + 1 ] )
+                swap(students_[j] , students_[j+1]);
+        }
+    }
+    std::string result = "";
+    for(auto && student : students_){
+        result += student.show();
+    }
+    return result;
+}
+
+void Database::swap(Student &s1, Student &s2) {
+        std::swap(s1,s2);
+}

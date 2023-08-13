@@ -26,7 +26,7 @@ TEST_F(DatabaseTest, DisplayNonEmptyDb){
     db.add(adam);
 
     auto content = db.show();
-    auto expected ="Adam Kowalski; ul. Dobra 134, 00-200 Warszawa; 123456; 11223344567; Male";
+    auto expected ="Adam Kowalski; ul. Dobra 134, 00-200 Warszawa; 123456; 11223344567; Male; ";
     EXPECT_EQ(content, expected);
 
 }
@@ -64,7 +64,7 @@ TEST_F(DatabaseTest, FindByLastname){
     db.add(adam);
 
     auto content = db.findByLastname("Kowalski");
-    std::string expected = "Adam Kowalski; ul. Dobra 134, 00-200 Warszawa; 123456; 11223344567; Male";
+    std::string expected = "Adam Kowalski; ul. Dobra 134, 00-200 Warszawa; 123456; 11223344567; Male; ";
     EXPECT_EQ(content, expected);
 }
 
@@ -98,6 +98,46 @@ TEST_F(DatabaseTest, FindByPesel){
     db.add(adam);
 
     auto content = db.findByPesel("11223344567");
-    std::string expected = "Adam Kowalski; ul. Dobra 134, 00-200 Warszawa; 123456; 11223344567; Male";
+    std::string expected = "Adam Kowalski; ul. Dobra 134, 00-200 Warszawa; 123456; 11223344567; Male; ";
+    EXPECT_EQ(content, expected);
+}
+
+
+TEST_F(DatabaseTest, SortByPesel){
+    Student adam{
+            "Adam",
+            "Kowalski",
+            "ul. Dobra 134, 00-200 Warszawa",
+            123456,
+            "11223344567",
+            Gender::Male
+    };
+
+    Student karol{
+            "Karol",
+            "Nowak",
+            "ul. Dobra 134, 00-200 Warszawa",
+            123457,
+            "76544332211",
+            Gender::Male
+    };
+
+    Student klaudia{
+            "Klaudia",
+            "Noobek",
+            "ul. Dobra 134, 00-200 Warszawa",
+            123458,
+            "96544332211",
+            Gender::Female
+    };
+
+    db.add(adam);
+    db.add(karol);
+    db.add(klaudia);
+
+    auto content = db.sortByPesel();
+    std::string expected = "Klaudia Noobek; ul. Dobra 134, 00-200 Warszawa; 123458; 96544332211; Male; "
+                           "Karol Nowak; ul. Dobra 134, 00-200 Warszawa; 123457; 76544332211; Male; "
+                           "Adam Kowalski; ul. Dobra 134, 00-200 Warszawa; 123456; 11223344567; Male; ";
     EXPECT_EQ(content, expected);
 }

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "student.hpp"
 
 Student::Student(
@@ -18,7 +19,7 @@ Student::Student(
 std::string Student::show() const {
 
     return name_ + " " + lastName_ + "; " + address_ + "; "
-    + std::to_string(index_) + "; " + pesel_ + "; " + "Male";
+    + std::to_string(index_) + "; " + pesel_ + "; " + "Male" + "; ";
 }
 
 std::string Student::getLastname() const {
@@ -28,3 +29,13 @@ std::string Student::getLastname() const {
 std::string Student::getPesel() const {
     return pesel_;
 }
+
+
+bool Student::operator>(const Student s) const {
+
+    if(pesel_ < s.pesel_)
+        return true;
+    else
+        return false;
+}
+

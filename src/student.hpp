@@ -17,6 +17,8 @@ public:
     std::string show() const;
     std::string getLastname() const;
     std::string getPesel() const;
+    bool operator> (const Student s) const;
+    void swap(Student &s1, Student &s2);
 
 private:
     std::string name_;
