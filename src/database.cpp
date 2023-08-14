@@ -42,14 +42,36 @@ std::string Database::findByPesel(std::string searchedPesel) const{
     return result;
 }
 
-std::string Database::sortByPesel() {
+std::string Database::sortByPeselHigh() {
 
     for( int i = 0; i < students_.size(); i++ )
     {
         for( int j = 0; j < students_.size() - 1; j++ )
         {
+
             if(whichPeselHigher(students_[j],students_[j+1]) )
                 swap(students_[j] , students_[j+1]);
+
+        }
+    }
+
+    std::string result = "";
+    for(auto && student : students_){
+        result += student.show();
+    }
+    return result;
+}
+
+std::string Database::sortByPeselLow() {
+
+    for( int i = 0; i < students_.size(); i++ )
+    {
+        for( int j = 0; j < students_.size() - 1; j++ )
+        {
+
+            if(whichPeselLower(students_[j],students_[j+1]) )
+                swap(students_[j] , students_[j+1]);
+
         }
     }
 
@@ -71,3 +93,12 @@ bool Database::whichPeselHigher(Student s, Student s1) const {
     else
         return false;
 }
+
+bool Database::whichPeselLower(Student s, Student s1) const {
+
+    if(s.getPesel() > s1.getPesel())
+        return true;
+    else
+        return false;
+}
+
