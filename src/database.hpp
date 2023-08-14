@@ -13,6 +13,7 @@ public:
     std::string findByPesel(std::string searchedPesel) const;
     std::string sortByPesel();
     void swap(Student &s1, Student &s2);
+    bool whichPeselHigher (Student s, Student s1) const;
 private:
     std::vector<Student> students_;
 

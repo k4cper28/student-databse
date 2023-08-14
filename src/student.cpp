@@ -30,12 +30,3 @@ std::string Student::getPesel() const {
     return pesel_;
 }
 
-
-bool Student::operator>(const Student s) const {
-
-    if(pesel_ < s.pesel_)
-        return true;
-    else
-        return false;
-}
-
