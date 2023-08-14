@@ -1,5 +1,6 @@
 #include "student.hpp"
 
+
 Student::Student(
          std::string name,
             std::string lastname,
@@ -18,7 +19,7 @@ Student::Student(
 std::string Student::show() const {
 
     return name_ + " " + lastName_ + "; " + address_ + "; "
-    + std::to_string(index_) + "; " + pesel_ + "; " + "Male" + "; ";
+    + std::to_string(index_) + "; " + pesel_ + "; " + genderToString(gender_) + "; ";
 }
 
 std::string Student::getLastname() const {

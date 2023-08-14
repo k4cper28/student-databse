@@ -13,9 +13,13 @@ public:
     std::string findByPesel(std::string searchedPesel) const;
     std::string sortByPeselHigh();
     std::string sortByPeselLow();
+    std::string sortByLastnameHigh();
+    std::string sortByLastnameLow();
     void swap(Student &s1, Student &s2);
-    bool whichPeselHigher (Student s, Student s1) const;
-    bool whichPeselLower (Student s, Student s1) const;
+    bool whichPeselHigher (Student &s, Student &s1) const;
+    bool whichPeselLower (Student &s, Student &s1) const;
+    bool whichLastnameHigher (Student &s, Student &s1) const;
+    bool whichLastnameLower (Student &s, Student &s1) const;
 private:
     std::vector<Student> students_;
 

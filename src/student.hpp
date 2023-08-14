@@ -6,6 +6,14 @@ enum class Gender{
     Female
 };
 
+constexpr const char* genderToString(Gender e) throw(){
+    switch (e) {
+        case Gender::Male:   return "Male";
+        case Gender::Female: return "Female";
+        default:    return "Unknown";
+    }
+}
+
 class Student{
 public:
     Student(std::string name,
