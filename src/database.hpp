@@ -20,6 +20,7 @@ public:
     bool whichPeselLower (Student &s, Student &s1) const;
     bool whichLastnameHigher (Student &s, Student &s1) const;
     bool whichLastnameLower (Student &s, Student &s1) const;
+    std::string delateByIndex(int index);
 private:
     std::vector<Student> students_;
 
