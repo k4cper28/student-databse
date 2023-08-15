@@ -143,3 +143,15 @@ TEST_F(DatabaseTest, SortByLastnameLow){
 
     EXPECT_EQ(content, expected);
 }
+
+TEST_F(DatabaseTest, SelateByIndex){
+    db.add(klaudia);
+    db.add(karol);
+    db.add(adam);
+
+    auto content = db.delateByIndex(123456);
+    std::string expected =  "Klaudia Boobek; ul. Dobra 134, 00-200 Warszawa; 123458; 96544332211; Female; "
+                            "Karol Nowak; ul. Dobra 134, 00-200 Warszawa; 123457; 76544332211; Male; ";
+
+    EXPECT_EQ(content, expected);
+}

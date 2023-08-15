@@ -50,7 +50,7 @@ std::string Database::sortByPeselHigh() {
         {
 
             if(whichPeselHigher(students_[j],students_[j+1]) )
-                swap(students_[j] , students_[j+1]);
+                swap(students_.at(j) , students_.at(j+1));
 
         }
     }
@@ -70,7 +70,7 @@ std::string Database::sortByPeselLow() {
         {
 
             if(whichPeselLower(students_[j],students_[j+1]) )
-                swap(students_[j] , students_[j+1]);
+                swap(students_.at(j) , students_.at(j+1));
 
         }
     }
@@ -109,7 +109,7 @@ std::string Database::sortByLastnameHigh() {
         {
 
             if(whichLastnameHigher(students_[j],students_[j+1]) )
-                swap(students_[j] , students_[j+1]);
+                swap(students_.at(j) , students_.at(j+1));
 
         }
     }
@@ -128,7 +128,7 @@ std::string Database::sortByLastnameLow() {
         {
 
             if(whichLastnameLower(students_[j],students_[j+1]) )
-                swap(students_[j] , students_[j+1]);
+                swap(students_.at(j) , students_.at(j+1));
 
         }
     }
@@ -154,3 +154,12 @@ bool Database::whichLastnameLower(Student &s, Student &s1) const {
         return false;
 }
 
+std::string Database::delateByIndex(int index) {
+
+    std::string result = "";
+    for(auto && student : students_){
+        if(student.getIndex() != index)
+            result += student.show();
+    }
+    return result;
+}

@@ -12,3 +12,8 @@ Wymagania podstawowe:
 8. Usuwanie po indeksie
 
 
+wymagania dodatkowe:
+
+1. poprawnosc numeru pesel
+2. odczyt i zapisywanie z pliku 
+
